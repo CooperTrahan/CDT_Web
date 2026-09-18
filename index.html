@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cooper Trahan — Course Plot</title>
+<meta name="description" content="Portfolio of Cooper Trahan (RedStego), computer and electrical engineering at the University of Memphis, heading for space systems engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Saira+Condensed:wght@500;600;700&family=Saira:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="sigil"><i></i>COOPER TRAHAN</div>
+    <div class="mast-mid">REDSTEGO &nbsp;·&nbsp; COMPUTER + ELECTRICAL ENGINEERING &nbsp;·&nbsp; UNIV. OF MEMPHIS</div>
+    <div class="clock"><span>T+</span> <b id="clock">00:00:00</b></div>
+  </header>
+
+  <main class="console">
+    <section class="chart-cell" aria-label="Navigation chart">
+      <div class="chart-head">
+        <div>COURSE PLOT &nbsp;<b>SOL &rarr; TAU CETI</b></div>
+        <div>SELECT A WAYPOINT</div>
+      </div>
+
+      <svg class="chart" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Star chart of portfolio destinations">
+        <defs>
+          <radialGradient id="solGlow">
+            <stop offset="0%" stop-color="#FF9C3D" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#FF9C3D" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="tauGlow">
+            <stop offset="0%" stop-color="#BFE9F6" stop-opacity=".5"/>
+            <stop offset="100%" stop-color="#BFE9F6" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="petrova" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stop-color="#E2455F" stop-opacity=".0"/>
+            <stop offset="45%" stop-color="#E2455F" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#FF9C3D" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <g id="stars"></g>
+
+        <g id="grid" aria-hidden="true"></g>
+
+        <!-- range rings from Sol -->
+        <g aria-hidden="true">
+          <circle class="ring" cx="110" cy="470" r="170"/>
+          <circle class="ring" cx="110" cy="470" r="330"/>
+          <circle class="ring" cx="110" cy="470" r="490"/>
+          <circle class="ring" cx="110" cy="470" r="650"/>
+          <text class="ring-label" x="118" y="292">4 ly</text>
+          <text class="ring-label" x="118" y="132">8 ly</text>
+        </g>
+
+        <!-- petrova line arcing off Sol -->
+        <path d="M110 470 C 60 380, 40 300, 96 214" stroke="url(#petrova)" stroke-width="6" fill="none" aria-hidden="true"/>
+
+        <!-- plotted route -->
+        <polyline id="route" class="route" points=""/>
+
+        <!-- Sol -->
+        <g class="star-sol" aria-hidden="true">
+          <circle cx="110" cy="470" r="46" fill="url(#solGlow)"/>
+          <circle class="core" cx="110" cy="470" r="7.5"/>
+          <text class="body-label" x="110" y="512" text-anchor="middle" fill="#FF9C3D">SOL</text>
+          <text class="body-sub" x="110" y="528" text-anchor="middle">ORIGIN · DIMMING</text>
+        </g>
+
+        <!-- Tau Ceti -->
+        <g aria-hidden="true">
+          <circle cx="905" cy="150" r="40" fill="url(#tauGlow)"/>
+          <circle cx="905" cy="150" r="6" fill="#DFF6FF"/>
+          <text class="body-label" x="905" y="122" text-anchor="middle">TAU CETI</text>
+          <text class="body-sub" x="905" y="106" text-anchor="middle">11.9 LY · CLEAR</text>
+        </g>
+
+        <g id="nodes"></g>
+        <g id="reticle" class="reticle" style="display:none">
+          <g class="spin">
+            <circle r="22" stroke-dasharray="4 9"/>
+          </g>
+          <circle r="30" stroke-dasharray="1 6" opacity=".5"/>
+        </g>
+      </svg>
+
+      <div class="destinations" id="destinations" role="group" aria-label="Destinations"></div>
+    </section>
+
+    <aside class="dossier" id="dossier" aria-live="polite">
+      <!-- filled by script; static fallback below -->
+      <div class="stamp">CREW RECORD · 01</div>
+      <h1>Cooper Trahan</h1>
+      <div class="kicker">Cooper Trahan · Memphis, Tennessee</div>
+      <p>I'm a computer and electrical engineering student at the University of Memphis and I currently work as an undergraduate research assistant at the Biomedical Sensors and Systems Lab, and I'm an aspiring Space Systems Engineer.</p>
+      <p>So far that's meant working in a University Lab, developing my own Robot Arm, creating my own weather station, and learning about satellite systems. Pick a waypoint on the chart to see the record behind it.</p>
+    </aside>
+  </main>
+
+  <section class="log" id="log">
+    <div class="log-head">
+      <h2>Mission log</h2>
+      <p>HARDWARE AND SOFTWARE BUILT TO DATE</p>
+    </div>
+
+    <article class="entry primary">
+      <div class="tag">FLIGHT SOFTWARE<em>Active · with Mississippi State</em></div>
+      <div>
+        <h3><a href="https://github.com/redstegosaurus/UNP-Satellite-">UNP CubeSat development</a></h3>
+        <p> *WORK IN PROGRESS* Working with Mississippi State University's University Nanosatellite Program team on the flight code that collects and returns atmospheric data. The closest thing I've touched to the job I actually want.</p>
+        <ul class="parts"><li>CubeSat</li><li>Embedded C</li><li>Atmospheric sensing</li><li>Telemetry</li></ul>
+      </div>
+      <a class="act ghost go" href="https://github.com/redstegosaurus/UNP-Satellite-">Open repo</a>
+    </article>
+
+    <article class="entry">
+      <div class="tag">CONTROL SYSTEMS<em>Complete</em></div>
+      <div>
+        <h3><a href="https://github.com/CooperTrahan/Robotic-Arm-And-Control-System">Automated robotic arm and control system</a></h3>
+        <p>A multi-servo arm that runs precise, repeatable motion routines off microcontroller logic. Sensor feedback closes the loop, so the arm holds position instead of drifting between moves.</p>
+        <ul class="parts"><li>Microcontroller</li><li>Servo array</li><li>Sensor feedback</li><li>Motion routines</li></ul>
+      </div>
+      <a class="act ghost go" href="https://github.com/CooperTrahan/Robotic-Arm-And-Control-System">Open repo</a>
+    </article>
+
+    <article class="entry">
+      <div class="tag">SENSING<em>Complete</em></div>
+      <div>
+        <h3>Arduino ultrasonic radar</h3>
+        <p>An HC-SR04 riding an SG90 servo, sweeping an arc while the Uno times echo pulses and streams distances over serial for a live plot. Small build, but it's where timing, servo control, and serial interfacing all clicked. The original source was lost; the presentation video stands in for it.</p>
+        <ul class="parts"><li>Arduino Uno</li><li>HC-SR04</li><li>SG90 servo</li><li>Serial telemetry</li></ul>
+      </div>
+      <a class="act ghost go" href="https://github.com/CooperTrahan/Arduino-Ultrasonic-Radar">Find the demo</a>
+    </article>
+
+    <article class="entry">
+      <div class="tag">BACKEND<em>Complete</em></div>
+      <div>
+        <h3><a href="https://github.com/CooperTrahan/Rest-API">FastAPI image resizer</a></h3>
+        <p>A Python REST service that resizes images on request — async handling, file processing, automated tests, and a container to run it in.</p>
+        <ul class="parts"><li>Python</li><li>FastAPI</li><li>Async I/O</li><li>Docker</li><li>Pytest</li></ul>
+      </div>
+      <a class="act ghost go" href="https://github.com/CooperTrahan/Rest-API">Open repo</a>
+    </article>
+
+    <article class="entry">
+      <div class="tag">WEB<em>Complete</em></div>
+      <div>
+        <h3><a href="https://github.com/CooperTrahan/HTML-Weather-App">JavaScript weather app</a></h3>
+        <p>Takes a city, validates it, pulls current conditions from the OpenWeatherMap API, converts Kelvin to Celsius, and renders the result — with error states for cities that don't exist and requests that fail.</p>
+        <ul class="parts"><li>JavaScript</li><li>Fetch API</li><li>OpenWeatherMap</li><li>Error handling</li></ul>
+      </div>
+      <a class="act ghost go" href="https://github.com/CooperTrahan/HTML-Weather-App">Open repo</a>
+    </article>
+  </section>
+
+  <footer>
+    <div>
+      <div class="sign">END OF TRANSMISSION</div>
+      <p class="note">Thanks for reading the log. If you have any questions, I can be reached at cdtrahan@memphis.edu or redstego@protonmail.com</p>
+    </div>
+    <nav>
+      <a href="https://www.linkedin.com/in/copperdtrahan">LinkedIn</a>
+      <a href="https://github.com/CooperTrahan">GitHub</a>
+      <a href="https://memphis.joinhandshake.com/profiles/cooperdanieltrahan">Handshake</a>
+      <a href="pdf/CooperDTrahanResume.pdf">Resume</a>
+    </nav>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var SITE = "https://coopertrahan.github.io/RedStegosSite/";
+
+  var WAYPOINTS = [
+    { id:"resume", desig:"HM-01", label:"RESUME", x:235, y:415, anchor:"start", dx:16, dy:5,
+      stamp:"WAYPOINT HM-01", title:"Resume", kicker:"One page, current",
+      body:["Coursework, tooling, and the hardware I've actually had my hands on. Updated as the semester moves."],
+      spec:[["FORMAT","PDF"],["SCOPE","Education, projects, skills"]],
+      acts:[{t:"Download resume",h:SITE+"Cooper T Resume-2.pdf"}] },
+
+    { id:"github", desig:"HM-02", label:"GITHUB", x:340, y:470, anchor:"middle", dx:0, dy:34,
+      stamp:"WAYPOINT HM-02", title:"Source code", kicker:"github.com/redstegosaurus",
+      body:["Everything I've built that has code in it — firmware, control logic, APIs, and the web work. Hardware repos include the wiring notes and the parts list."],
+      spec:[["HANDLE","redstegosaurus"],["MIX","Embedded, Python, JavaScript"]],
+      acts:[{t:"Open GitHub",h:"https://github.com/redstegosaurus"}] },
+
+    { id:"video", desig:"HM-03", label:"BUILD DEMOS", x:430, y:330, anchor:"middle", dx:0, dy:-22,
+      stamp:"WAYPOINT HM-03", title:"Build demos", kicker:"Watch the hardware run",
+      body:["Walkthroughs and demo footage of the physical builds — easier to judge a servo arm in motion than in a README."],
+      spec:[["FORMAT","Video"],["SUBJECTS","Arm, radar, sensors"]],
+      acts:[{t:"Watch demos",h:"https://github.com/redstegosaurus"}] },
+
+    { id:"letters", desig:"HM-04", label:"LETTERS OF REC", x:540, y:440, anchor:"middle", dx:0, dy:34,
+      stamp:"WAYPOINT HM-04", title:"Letters of recommendation", kicker:"From previous employers",
+      body:["Two letters, in their own words rather than mine."],
+      spec:[["ON FILE","2 letters"],["FORMAT","PDF"]],
+      acts:[{t:"Letter one",h:SITE+"LetterofRec.pdf"},{t:"Letter two",h:SITE+"rec.pdf",ghost:true}] },
+
+    { id:"linkedin", desig:"HM-05", label:"LINKEDIN", x:625, y:275, anchor:"middle", dx:0, dy:-22,
+      stamp:"WAYPOINT HM-05", title:"LinkedIn", kicker:"Professional record",
+      body:["Roles, coursework, and whatever I'm currently working on. The best place to reach me if we haven't met."],
+      spec:[["PROFILE","copperdtrahan"],["USE","Contact, work history"]],
+      acts:[{t:"Open LinkedIn",h:"https://www.linkedin.com/in/copperdtrahan"}] },
+
+    { id:"handshake", desig:"HM-06", label:"HANDSHAKE", x:700, y:395, anchor:"middle", dx:0, dy:34,
+      stamp:"WAYPOINT HM-06", title:"Handshake", kicker:"University of Memphis",
+      body:["My university profile, with the most current version of my availability for internships and co-ops."],
+      spec:[["SCHOOL","University of Memphis"],["LOOKING FOR","Internships, co-ops"]],
+      acts:[{t:"Open Handshake",h:"https://memphis.joinhandshake.com/profiles/cooperdanieltrahan"}] },
+
+    { id:"projects", desig:"HM-07", label:"MISSION LOG", x:800, y:230, anchor:"middle", dx:0, dy:-24,
+      stamp:"WAYPOINT HM-07", title:"Mission log", kicker:"Five builds, hardware and software",
+      body:["A CubeSat payload with Mississippi State, an automated robotic arm, an ultrasonic radar, a FastAPI service, and a weather client. Full entries below."],
+      spec:[["ENTRIES","5"],["FLAGSHIP","UNP CubeSat"]],
+      acts:[{t:"Read the log",h:"#log"}] }
+  ];
+
+  var CREW = {
+    stamp:"CREW RECORD · 01", title:"Cooper Trahan", kicker:"RedStego · Memphis, Tennessee",
+    body:[
+      "I'm a computer and electrical engineering student at the University of Memphis, working toward space systems engineering — the seat where the power, the sensors, and the flight software all have to agree with each other.",
+      "Right now that means satellite code with Mississippi State, servo control loops, and anything that lets me put a sensor on a board and read something real off it."
+    ],
+    spec:[["PROGRAM","Computer + Electrical Eng."],["SCHOOL","University of Memphis"],["HEADING","Space systems engineering"],["STATUS","Open to internships"]],
+    acts:[{t:"Download resume",h:SITE+"Cooper T Resume-2.pdf"},{t:"GitHub",h:"https://github.com/redstegosaurus",ghost:true}]
+  };
+
+  var SVGNS = "http://www.w3.org/2000/svg";
+  function el(n,a){var e=document.createElementNS(SVGNS,n);for(var k in a){e.setAttribute(k,a[k]);}return e;}
+
+  /* starfield */
+  var stars = document.getElementById("stars");
+  var seed = 7;
+  function rnd(){ seed = (seed*16807)%2147483647; return seed/2147483647; }
+  for(var i=0;i<280;i++){
+    var r = rnd()*1.25+.25;
+    stars.appendChild(el("circle",{cx:(rnd()*1000).toFixed(1),cy:(rnd()*620).toFixed(1),r:r.toFixed(2),
+      fill:"#CFE6EF","fill-opacity":(rnd()*.55+.08).toFixed(2)}));
+  }
+
+  /* grid */
+  var grid = document.getElementById("grid");
+  for(var gx=100;gx<1000;gx+=100){ grid.appendChild(el("line",{x1:gx,y1:0,x2:gx,y2:620,"class":"gridline"})); }
+  for(var gy=100;gy<620;gy+=100){ grid.appendChild(el("line",{x1:0,y1:gy,x2:1000,y2:gy,"class":"gridline"})); }
+
+  /* route */
+  var pts = [[110,470]].concat(WAYPOINTS.map(function(w){return [w.x,w.y];})).concat([[905,150]]);
+  document.getElementById("route").setAttribute("points", pts.map(function(p){return p[0]+","+p[1];}).join(" "));
+
+  /* nodes */
+  var nodesG = document.getElementById("nodes");
+  var reticle = document.getElementById("reticle");
+  var dossier = document.getElementById("dossier");
+  var destWrap = document.getElementById("destinations");
+  var nodeEls = {}, btnEls = {};
+
+  WAYPOINTS.forEach(function(w){
+    var g = el("g",{"class":"node",tabindex:"0",role:"button","aria-label":w.label});
+    g.appendChild(el("circle",{"class":"halo",cx:w.x,cy:w.y,r:14}));
+    g.appendChild(el("circle",{"class":"core",cx:w.x,cy:w.y,r:4.5}));
+    var t = el("text",{"class":"name",x:w.x+w.dx,y:w.y+w.dy,"text-anchor":w.anchor});
+    t.textContent = w.label;
+    g.appendChild(t);
+    var d = el("text",{"class":"desig",x:w.x+w.dx,y:w.y+w.dy+13,"text-anchor":w.anchor});
+    d.textContent = w.desig;
+    g.appendChild(d);
+    g.addEventListener("click",function(){select(w.id);});
+    g.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();select(w.id);} });
+    nodesG.appendChild(g);
+    nodeEls[w.id]=g;
+
+    var b = document.createElement("button");
+    b.type="button"; b.textContent=w.label; b.setAttribute("aria-pressed","false");
+    b.addEventListener("click",function(){select(w.id);});
+    destWrap.appendChild(b);
+    btnEls[w.id]=b;
+  });
+
+  function render(rec){
+    var h = '<div class="stamp">'+rec.stamp+'</div>'+
+            '<h2>'+rec.title+'</h2>'+
+            '<div class="kicker">'+rec.kicker+'</div>'+
+            rec.body.map(function(p){return "<p>"+p+"</p>";}).join("");
+    if(rec.spec){
+      h += '<dl class="spec">'+rec.spec.map(function(s){return "<dt>"+s[0]+"</dt><dd>"+s[1]+"</dd>";}).join("")+"</dl>";
+    }
+    if(rec.acts){
+      h += '<div class="acts">'+rec.acts.map(function(a){
+        return '<a class="act'+(a.ghost?" ghost":"")+'" href="'+a.h+'">'+a.t+"</a>";
+      }).join("")+"</div>";
+    }
+    dossier.innerHTML = h;
+  }
+
+  var current = null;
+  function select(id){
+    var w = WAYPOINTS.filter(function(v){return v.id===id;})[0];
+    if(!w) return;
+    if(current && nodeEls[current]){ nodeEls[current].classList.remove("is-active"); btnEls[current].setAttribute("aria-pressed","false"); }
+    current = id;
+    nodeEls[id].classList.add("is-active");
+    btnEls[id].setAttribute("aria-pressed","true");
+    reticle.setAttribute("transform","translate("+w.x+","+w.y+")");
+    reticle.style.display="";
+    render(w);
+  }
+
+  render(CREW);
+
+  /* mission clock */
+  var t0 = Date.now(), out = document.getElementById("clock");
+  function pad(n){return n<10?"0"+n:""+n;}
+  setInterval(function(){
+    var s = Math.floor((Date.now()-t0)/1000);
+    out.textContent = pad(Math.floor(s/3600))+":"+pad(Math.floor(s/60)%60)+":"+pad(s%60);
+  },1000);
+
+  /* smooth scroll for in-page links */
+  document.addEventListener("click",function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if(!a) return;
+    var tgt = document.querySelector(a.getAttribute("href"));
+    if(tgt){ e.preventDefault(); tgt.scrollIntoView({behavior:"smooth",block:"start"}); }
+  });
+})();
+</script>
+</body>
+</html>
